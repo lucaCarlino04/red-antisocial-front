@@ -1,24 +1,7 @@
-import { useEffect, useState } from "react";
 import type { Usuario } from "../types/Usuario";
-import { obtenerUsuarioPorNickName } from "../services/UsuarioService";
 
-export default function UsuarioPerfil({ nickName }: { nickName: string }) {
-    const [usuario, setUsuario] = useState<Usuario | null>(null);
+export default function UsuarioPerfil({ nickName }: { nickName: Usuario }) {
 
-    useEffect(() => {
-        async function cargarUsuario() {
-            const usuario = await obtenerUsuarioPorNickName(nickName);
-            setUsuario(usuario);
-        }
-
-        cargarUsuario();
-        console.log(usuario)
-        }, [nickName]
-    );
-
-    if (!usuario) {
-        return <p>Cargando...</p>;
-}
 return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex justify-center">
       <div className="w-full max-w-xl px-4 py-6">
@@ -26,7 +9,7 @@ return (
         {/* HEADER PERFIL */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold">{usuario.nickName}</h1>
+            <h1 className="text-xl font-bold">@{nickName.nickName}</h1>
           </div>
 
           <img className="w-18 h-18 rounded-full bg-gray-700" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Imagen de perfil"/>
@@ -36,13 +19,13 @@ return (
         <div className="flex gap-4 mt-4 text-sm text-gray-400">
           <p>
             <span className="text-black dark:text-white font-semibold">
-              {usuario.followers.length}
+              {nickName.followers.length}
             </span>{" "}
              Seguidores
           </p>
           <p>
             <span className="text-black dark:text-white font-semibold">
-              {usuario.following.length}
+              {nickName.following.length}
             </span>{" "}
              Siguiendo
           </p>
@@ -65,5 +48,4 @@ return (
       </div>
     </div>
   );
-
 }
