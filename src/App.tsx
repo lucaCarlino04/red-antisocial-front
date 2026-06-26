@@ -17,7 +17,7 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="theme">
       <AuthProvider>
         <BrowserRouter>
-          <main className="md:ml-20 mb-4 min-h-screen">
+          <main className="md:ml-20 mb-16 min-h-screen">
             <Header />
             <Navbar />
             <Routes>
