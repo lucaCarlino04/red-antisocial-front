@@ -1,4 +1,4 @@
-import type {Post} from "../types/Post";
+import type { Post } from "../types/Post";
 import { URL } from "../api";
 
 const API_URL = `${URL}/publicaciones`;

@@ -1,4 +1,4 @@
-import type {Comentario} from "../types/Comentario";
+import type { Comentario } from "../types/Comentario";
 import { URL } from "../api";
 
 const API_URL = `${URL}/comentarios`;
@@ -20,6 +20,18 @@ export async function obtenerComentarioPorId(id: string): Promise<Comentario> {
 
   if (!respuesta.ok) {
     throw new Error("No se pudo obtener el comentario");
+  }
+
+  return await respuesta.json();
+}
+
+export async function obtenerComentariosPorPost(
+  postId: string,
+): Promise<Comentario[]> {
+  const respuesta = await fetch(`${API_URL}/publicacion/${postId}`);
+
+  if (!respuesta.ok) {
+    throw new Error("No se pudieron obtener los comentarios del post");
   }
 
   return await respuesta.json();
