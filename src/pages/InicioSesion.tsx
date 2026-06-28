@@ -1,20 +1,49 @@
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 export default function InicioSesion() {
+  
+  const navigate = useNavigate();
+  const { iniciar, isAuthenticated } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const loginOk = iniciar({
+      email,
+      password,
+    });
+
+    if (loginOk) {
+      setError("");
+      navigate("/inicio");
+    } else {
+      setError("Email o contraseña invalidos");
+    }
+  }
+
+  if (isAuthenticated) {
+    return <Navigate to="/mi-perfil" replace />;
+  }
+  
+  
   return <>
       <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md">
 
-        {/* Título */}
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold">Iniciar sesión</h1>
           <p className="mt-2">
             Ingresa tus credenciales para continuar.
           </p>
         </div>
-
-        {/* Formulario */}
-        <form className="space-y-6">
-
-          {/* Email */}
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block mb-2">
               Email
@@ -24,10 +53,10 @@ export default function InicioSesion() {
               type="email"
               placeholder="correo@ejemplo.com"
               className="w-full border rounded-md p-2"
+               value={email}
+               onChange={(event) => setEmail(event.target.value)}
             />
           </div>
-
-          {/* Contraseña */}
           <div>
             <label htmlFor="password" className="block mb-2">
               Contraseña
@@ -37,10 +66,10 @@ export default function InicioSesion() {
               type="password"
               placeholder="********"
               className="w-full border rounded-md p-2"
+               value={password}
+               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-
-          {/* Botón */}
           <button
             type="submit"
             className="w-full border rounded-md py-2"
@@ -49,8 +78,6 @@ export default function InicioSesion() {
           </button>
 
         </form>
-
-        {/* Registro */}
         <div className="mt-6 text-center">
           <p>
             ¿No tienes una cuenta?
@@ -64,4 +91,5 @@ export default function InicioSesion() {
       </div>
     </div>
   </>;
-}
+  }
+

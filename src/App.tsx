@@ -22,15 +22,16 @@ function App() {
             <Navbar />
             <Routes>
               
-              <Route path="/" element={<InicioSesion />} />
+              <Route path="/iniciarSesion" element={<InicioSesion />} />
               <Route path="/registrar" element={<RegistroUsuario />} />
-              <Route path="/publicacion/:id" element={<DetallePost />} />
+              <Route path="/inicio" element={<Inicio />} />
 
               {/* Estas 2 tienen que ser protegidas */}
               <Route element={<RutaProtegida />}>
                 <Route path="/perfil/:nickName" element={<Perfil />} />
                 <Route path="/publicar" element={<CrearPost />} />
-                <Route path="/inicio" element={<Inicio />} />
+                
+                <Route path="/publicacion/:id" element={<DetallePost />} />
               </Route>
 
               {/* Pagina error */}

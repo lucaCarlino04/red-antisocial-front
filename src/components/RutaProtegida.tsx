@@ -2,8 +2,8 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function RutaProtegida() {
-  const { usuario } = useAuth();
-  if (!usuario) return <Navigate to="/iniciar" replace />;
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/iniciarSesion" replace />;
 
   return <Outlet />;
 }
