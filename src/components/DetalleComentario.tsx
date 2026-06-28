@@ -1,7 +1,11 @@
 import type { Comentario } from "../types/Comentario";
 import { tiempoRelativo } from "../utils/tiempoRelativo";
 
-export default function DetalleComentario({ comentario }: { comentario: Comentario }) {
+export default function DetalleComentario({
+  comentario,
+}: {
+  comentario: Comentario;
+}) {
   return (
     <li
       key={comentario._id}
