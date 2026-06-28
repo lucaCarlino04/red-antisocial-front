@@ -29,7 +29,7 @@ export default function Inicio() {
     async function obtenerData() {
       try {
         const dataPosts = await obtenerPosts();
-        setPosts([]);
+        setPosts(dataPosts);
         const dataTags = await obtenerTags();
         setTags(dataTags);
         const contadorComentarios: Record<string, number> = {};
