@@ -9,6 +9,7 @@ import Loader from "../components/Loader";
 import PostCard from "../components/PostCard";
 import TagBoton from "../components/TagBoton";
 import ComponenteAnimado from "../components/ComponenteAnimado";
+import { Link } from "react-router-dom";
 
 const POSTS_POR_PAGINA = 4;
 
@@ -96,10 +97,12 @@ export default function Inicio() {
       ) : (
         postsPaginados.map((post) => (
           <ComponenteAnimado key={post._id}>
-            <PostCard
-              post={post}
-              cantidadComentarios={cantidadComentarios[post._id] ?? 0}
-            />
+            <Link to={`/publicacion/${post._id}`}>
+              <PostCard
+                post={post}
+                cantidadComentarios={cantidadComentarios[post._id] ?? 0}
+              />
+            </Link>
           </ComponenteAnimado>
         ))
       )}
