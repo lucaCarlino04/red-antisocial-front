@@ -8,38 +8,37 @@ import DetallePost from "./pages/DetallePost";
 import RegistroUsuario from "./pages/RegistroUsuario";
 import InicioSesion from "./pages/InicioSesion";
 import RutaProtegida from "./components/RutaProtegida";
-import { AuthProvider } from "./context/AuthContext";
+import {AuthProvider} from "./context/AuthContext";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="theme">
-      <AuthProvider>
-        <BrowserRouter>
-          <main className="md:ml-20 mb-16 min-h-screen">
-            <Header />
-            <Navbar />
-            <Routes>
-              
-              <Route path="/iniciarSesion" element={<InicioSesion />} />
-              <Route path="/registrar" element={<RegistroUsuario />} />
-              <Route path="/inicio" element={<Inicio />} />
-
-              {/* Estas 2 tienen que ser protegidas */}
-              <Route element={<RutaProtegida />}>
-                <Route path="/perfil/:nickName" element={<Perfil />} />
-                <Route path="/publicar" element={<CrearPost />} />
-                
+        <AuthProvider>
+          <BrowserRouter>
+            <main className="md:ml-20 mb-16 min-h-screen">
+              <Header />
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/iniciar" element={<InicioSesion />} />
+                <Route path="/registrar" element={<RegistroUsuario />} />
                 <Route path="/publicacion/:id" element={<DetallePost />} />
-              </Route>
 
-              {/* Pagina error */}
-              <Route path="*" element={<NoEncontrado />} />
-            </Routes>
-          </main>
-        </BrowserRouter>
-      </AuthProvider>
+                {/* Estas 2 tienen que ser protegidas */}
+                <Route element={<RutaProtegida />}>
+                  <Route path="/perfil/:nickName" element={<Perfil />} />
+                  <Route path="/publicar" element={<CrearPost />} />
+                </Route>
+
+                {/* Pagina error */}
+                <Route path="*" element={<NoEncontrado />} />
+              </Routes>
+            </main>
+          </BrowserRouter>
+        </AuthProvider>
     </ThemeProvider>
   );
 }
