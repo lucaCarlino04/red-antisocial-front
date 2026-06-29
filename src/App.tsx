@@ -13,14 +13,10 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import { AlertProvider } from "./context/AlertContext";
 
-
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="theme">
-<<<<<<< HEAD
       <AlertProvider>
-=======
->>>>>>> login
         <AuthProvider>
           <BrowserRouter>
             <main className="md:ml-20 mb-16 min-h-screen">
@@ -44,10 +40,7 @@ function App() {
             </main>
           </BrowserRouter>
         </AuthProvider>
-<<<<<<< HEAD
       </AlertProvider>
-=======
->>>>>>> login
     </ThemeProvider>
   );
 }

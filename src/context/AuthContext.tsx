@@ -1,11 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import type { AuthContextType, LoginData, User } from "../types/loginDatos";
 
-<<<<<<< HEAD
-type Usuario = { id: string; nickName: string };
-=======
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
->>>>>>> login
 
 const permitido = {
   id: 1,
@@ -17,13 +13,6 @@ const permitido = {
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
-<<<<<<< HEAD
-  //Simular que si hay usuario
-  const [usuario] = useState<Usuario | null>({
-    id: "6a3f235eabc360ebd10b6ad5",
-    nickName: "test",
-  });
-=======
   function iniciar(data: LoginData): boolean {
     if (data.email === permitido.email && data.password === permitido.password) {
       const loggedUser: User = {
@@ -31,7 +20,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         name: permitido.name,
         email: permitido.email,
       };
->>>>>>> login
 
       setUser(loggedUser);
       return true;
