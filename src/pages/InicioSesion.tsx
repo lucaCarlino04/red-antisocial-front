@@ -68,8 +68,10 @@ export default function InicioSesion() {
               id="email"
               type="email"
               placeholder={emailError ? "Debe ingresar un email valido" : "ejemplo@gmail.com"}
-              className={`w-full rounded-md p-2 border transition
-              ${emailError ? "border-red-500 placeholder-red-500" : "border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"}`}
+              className={`w-full rounded-md p-2 border transition border-2
+              ${emailError ?
+                  "border-red-300 focus:ring-1 focus:ring-red-300 outline-none" :
+                  "border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"}`}
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -85,8 +87,10 @@ export default function InicioSesion() {
               id="password"
               type="password"
               placeholder={passwordError ? "Debe ingresar una contraseña" : "********"}
-              className={`w-full rounded-md p-2 border transition
-              ${passwordError ? "border-red-500 placeholder-red-500" : "border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"}`}
+              className={`w-full rounded-md p-2 border transition border-2
+              ${passwordError ?
+                  "border-red-300 focus:ring-1 focus:ring-red-300 outline-none" :
+                  "border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"}`}
               value={password}
               onChange={(event) => {
                 setPassword(event.target.value);
@@ -96,13 +100,24 @@ export default function InicioSesion() {
           </div>
           <button
             type="submit"
-            className="w-full border rounded-md py-2"
+            className="
+            w-full
+            mt-2
+            py-3
+            rounded-md
+            bg-gray-800
+            text-white
+            font-semibold
+            transition
+            hover:bg-gray-700
+            active:bg-bg-gray-300
+            active:scale-95"
           >
             Iniciar sesion
           </button>
 
         </form>
-        <div className="mt-6 text-center">
+        <div className="mt-4 text-center">
           <p>
             ¿No tienes una cuenta?
           </p>
@@ -111,6 +126,7 @@ export default function InicioSesion() {
             type="submit"
             className="
             w-full
+            mt-3
             py-3
             rounded-md
             bg-blue-600
