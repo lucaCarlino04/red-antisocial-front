@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import type { AuthContextType, LoginData, Usuario } from "../types/Usuario";
 import {obtenerUsuarioPorNickName} from "../services/UsuarioService"
 
@@ -8,6 +8,14 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<Usuario | null>(null);
+  useEffect(() => {
+    const usuarioGuardado = localStorage.getItem("usuario");
+
+    if (usuarioGuardado) {
+      setUser(JSON.parse(usuarioGuardado));
+    }
+  }, []);
+
 
 async function iniciar(data: LoginData): Promise<boolean> {
   
@@ -20,6 +28,7 @@ async function iniciar(data: LoginData): Promise<boolean> {
       data.password === usuario._id
     ) {
       setUser(usuario);
+      localStorage.setItem("usuario", JSON.stringify(usuario));
       return true;
       console.log(usuario)
     }
@@ -28,12 +37,11 @@ async function iniciar(data: LoginData): Promise<boolean> {
   } catch {
     return false;
   }
-
-  
 }
 
   function salir() {
     setUser(null);
+    localStorage.removeItem("usuario");
   }
 
   const value: AuthContextType = {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import type { Usuario } from "../types/Usuario";
@@ -11,14 +11,16 @@ import UsuarioPerfil from "../components/UsuarioPerfil";
 import PostCard from "../components/PostCard";
 import ComponenteAnimado from "../components/ComponenteAnimado";
 import { obtenerComentariosPorPost } from "../services/ComentarioService";
+import { useAuth } from "../context/AuthContext";
+
 
 export default function Perfil() {
   const { nickName } = useParams<{ nickName: string }>();
-
+  const { isAuthenticated, user } = useAuth();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
   const [cantidadComentarios, setCantidadComentarios] = useState<Record<string, number>>({});
-  
+  const esMiPerfil = isAuthenticated && user?.nickName === usuario?.nickName;
 
   useEffect(() => {
     if (!nickName) return;
@@ -44,7 +46,7 @@ export default function Perfil() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex justify-center">
       <div className="w-full max-w-xl px-4 py-6">
-        <UsuarioPerfil nickName={usuario} />
+        <UsuarioPerfil nickName={usuario} esMiPerfil={esMiPerfil} />
         
         {posts 
         ? posts.map((post) => (

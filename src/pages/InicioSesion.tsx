@@ -130,13 +130,10 @@ async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
             mt-3
             py-3
             rounded-md
-            bg-blue-600
-            text-white
             font-semibold
-            transition
-            hover:bg-blue-700
-            active:bg-blue-800
-            active:scale-95"
+            active:bg-emerald-800
+            active:scale-95
+            bg-emerald-700 text-white hover:bg-emerald-800 transition"
           >
             Registrarse
           </button>

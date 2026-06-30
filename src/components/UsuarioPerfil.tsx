@@ -1,7 +1,6 @@
 import type { Usuario } from "../types/Usuario";
 
-export default function UsuarioPerfil({ nickName }: { nickName: Usuario }) {
-
+export default function UsuarioPerfil({nickName,esMiPerfil, }: { nickName: Usuario; esMiPerfil: boolean;}) {
 return (
   <div>
         {/* HEADER PERFIL */}
@@ -29,10 +28,10 @@ return (
           </p>
         </div>
 
-        {/* BOTÓN FOLLOW */}
+        {/* BOTÓN FOLLOW / Editar perfil */}
         <div className="mt-5">
           <button className="w-full bg-emerald-700 text-white py-2 rounded-full font-semibold hover:bg-emerald-800 transition">
-            Seguir
+            {esMiPerfil ? "Editar perfil" : "Seguir"}
           </button>
         </div>
 

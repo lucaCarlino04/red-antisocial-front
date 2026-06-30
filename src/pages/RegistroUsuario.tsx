@@ -163,12 +163,9 @@ export default function RegistroUsuario() {
             mt-2
             py-3
             rounded-md
-            bg-gray-800
-            text-white
+            bg-emerald-700 text-white hover:bg-emerald-800 transition
             font-semibold
-            transition
-            hover:bg-gray-700
-            active:bg-bg-gray-300
+            active:bg-bg-emerald-300
             active:scale-95">
             Registrarse
           </button>
@@ -180,12 +177,9 @@ export default function RegistroUsuario() {
             mt-3
             py-3
             rounded-md
-            bg-blue-600
-            text-white
             font-semibold
-            transition
-            hover:bg-blue-700
-            active:bg-blue-800
+            active:bg-emerald-800
+            bg-emerald-700 text-white hover:bg-emerald-800 transition
             active:scale-95"
             onClick={() => navigate("/iniciar")}>
             Inicia sesión

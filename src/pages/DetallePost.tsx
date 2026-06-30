@@ -14,7 +14,7 @@ import PostCard from "../components/PostCard";
 
 export default function DetallePost() {
   const { id } = useParams<{ id: string }>();
-  const { usuario } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   const [post, setPost] = useState<Post | null>(null);
   const [comentarios, setComentarios] = useState<Comentario[]>([]);
@@ -74,7 +74,7 @@ export default function DetallePost() {
         </div>
 
         {/* Crear comentario */}
-        {usuario ? (
+        {isAuthenticated ? (
           <ComentarioForm
             postId={post._id}
             onNuevoComentario={(nuevoComentario) => {
