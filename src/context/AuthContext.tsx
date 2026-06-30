@@ -10,10 +10,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<Usuario | null>(null);
 
 async function iniciar(data: LoginData): Promise<boolean> {
-  if (user) {
-  return <Navigate to={`/perfil/${user.nickName}`} replace />;
-}
+  
   try {
+    
     const usuario = await obtenerUsuarioPorNickName(data.nickName);
 
     if (
