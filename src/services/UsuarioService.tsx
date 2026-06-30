@@ -25,3 +25,17 @@ export async  function obtenerUsuarioPorNickName(nickName: string): Promise<Usua
 
   return await respuesta.json();
 }
+
+export async function crearUsuario(nickName: string): Promise<Usuario> {
+  const respuesta = await fetch(API_URL, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({nickName})
+  });
+
+  if (!respuesta.ok) {
+    throw new Error("No se pudo crear el usuario")
+  }
+
+  return await respuesta.json()
+}
