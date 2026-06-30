@@ -3,9 +3,7 @@ import type { Usuario } from "../types/Usuario";
 export default function UsuarioPerfil({ nickName }: { nickName: Usuario }) {
 
 return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex justify-center">
-      <div className="w-full max-w-xl px-4 py-6">
-
+  <div>
         {/* HEADER PERFIL */}
         <div className="flex items-center justify-between">
           <div>
@@ -40,12 +38,6 @@ return (
 
         {/* SEPARADOR */}
         <div className="border-b border-gray-800 my-6" />
-
-        {/* POSTS (placeholder) */}
-        <div className="text-gray-500 text-sm">
-          Acá van los posts del usuario...
-        </div>
-      </div>
     </div>
   );
 }

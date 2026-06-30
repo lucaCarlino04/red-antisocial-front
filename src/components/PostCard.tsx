@@ -28,9 +28,9 @@ export default function PostCard({
       >
         <div className="flex flex-col gap-3 flex-1 min-w-0">
           <div className="flex items-center w-full justify-between gap-2">
-            <h4 className="font-semibold truncate text-blue-500 uppercase">
+            <Link to={`/perfil/${post.user.nickName}`} className="font-semibold truncate text-blue-500 uppercase hover:text-blue-300 transition">
               @{post.user.nickName}
-            </h4>
+            </Link>
             {destacado && (
               <h4 className="flex items-center  text-xs font-medium text-blue-500 mb-1 uppercase">
                 Post destacado

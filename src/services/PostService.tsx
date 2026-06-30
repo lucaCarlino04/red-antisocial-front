@@ -24,3 +24,9 @@ export async function obtenerPostPorId(id: string): Promise<Post> {
 
   return await respuesta.json();
 }
+
+export async function obtenerPostsDeUsuario(nickName: string): Promise<Post[]> {
+  const posts = await obtenerPosts();
+
+  return posts.filter(post => post.user.nickName === nickName);
+}

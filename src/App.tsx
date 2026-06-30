@@ -8,7 +8,7 @@ import DetallePost from "./pages/DetallePost";
 import RegistroUsuario from "./pages/RegistroUsuario";
 import InicioSesion from "./pages/InicioSesion";
 import RutaProtegida from "./components/RutaProtegida";
-import AuthProvider from "./context/AuthContext";
+import {AuthProvider} from "./context/AuthContext";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import { AlertProvider } from "./context/AlertContext";
