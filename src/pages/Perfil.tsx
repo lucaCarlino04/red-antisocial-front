@@ -97,7 +97,7 @@ export default function Perfil() {
           ))
         ) : (
           <h4 className="font-medium rounded-lg border border-dashed py-2 text-center text-zinc-600 dark:text-gray-500">
-            Todavia no hay publicaciones.
+           {nickName} todavia no tiene publicaciones.
           </h4>
         )}
       </div>

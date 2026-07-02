@@ -2,6 +2,7 @@ export type Usuario = {
   _id: string;
   password: string;
   nickName: string;
+  description: string;
   followers: string[];
   following: string[];
 };

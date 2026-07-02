@@ -90,7 +90,7 @@ export default function Navbar() {
             onClick={salir}
             className={`${estiloLink(false)} cursor-pointer`}
           >
-            <LogOut size={24} strokeWidth={2} />
+            <LogOut className="text-red-800"  size={24} strokeWidth={2} />
           </button>
         )}
         <ThemeBoton mobile />

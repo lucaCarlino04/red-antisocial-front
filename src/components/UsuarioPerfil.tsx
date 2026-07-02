@@ -20,6 +20,7 @@ export default function UsuarioPerfil({
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold">@{nickName.nickName}</h1>
+          <p className="ml-1 dark:text-gray-400 text-gray-600 text-sm">{nickName.description}</p>
         </div>
 
         <img
