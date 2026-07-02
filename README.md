@@ -1,6 +1,6 @@
-# Antisocial-UNAHUR
+# Red Antisocial
 
-Este proyecto es una red social desarrollada con React-TypeScript (front) y Node-MongoDB (back), que permite a los usuarios registrarse, iniciar sesión, crear publicaciones con imágenes y etiquetas, comentar posteos y visitar perfiles de otros usuarios, asi como seguirlos y dejarlos de seguir.
+Este proyecto es una red social desarrollada con React-TypeScript (front) y Node-MongoDB-Redis (back), que permite a los usuarios registrarse, iniciar sesión, crear publicaciones con imágenes y etiquetas, comentar posteos y visitar perfiles de otros usuarios, asi como seguirlos y dejarlos de seguir.
 Se encuentra desplegado en [red-antisocial.vercel.app](https://red-antisocial.vercel.app/)
 
 ## Funcionalidades
@@ -68,6 +68,10 @@ Una vez completada la instalación del repositorio del backend, seguir estos pas
 
 ## URL de la API utilizada
 
-El el proyecto consume una API propia, disponible para clonar desde:
+El proyecto consume una API propia, disponible para clonar desde:
 
 https://github.com/lucaCarlino04/red-antisocial-back.git
+
+---
+
+Este proyecto nació como parte del segundo parcial de la materia Construcción de Interfaces de Usuario de la Universidad Nacional de Hurlingham. Posteriormente seguí trabajando por mi cuenta en el proyecto para extenderlo.
