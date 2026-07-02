@@ -16,6 +16,7 @@ import UsuarioPerfil from "../components/UsuarioPerfil";
 
 import PostCard from "../components/PostCard";
 import ComponenteAnimado from "../components/ComponenteAnimado";
+import Loader from "../components/Loader";
 
 import { useAuth } from "../context/AuthContext";
 
@@ -74,7 +75,7 @@ export default function Perfil() {
     cargarUsuario();
   }, [nickName]);
 
-  if (!usuario) return <p>Cargando...</p>;
+  if (!usuario) return <Loader></Loader>;
 
   return (
     <div className="min-h-[calc(100vh-10rem)] flex justify-center px-4">
