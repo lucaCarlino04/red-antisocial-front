@@ -237,38 +237,31 @@ export default function CrearPost() {
             {/* Carga de URLs de Imágenes */}
             <div className="space-y-2">
               <label className="flex items-center gap-1.5 text-sm font-semibold text-zinc-700 dark:text-gray-300">
-                <Image size={16} /> Links de Imágenes (Opcional)
+                <Image size={16} /> Imágenes (Opcional)
               </label>
-              <div className="space-y-2">
-                {urlsImagenes.map((url, index) => (
-                  <div key={index} className="flex gap-2 items-center">
-                    <input
-                      type="url"
-                      value={url}
-                      onChange={(e) => manejarCambioUrl(index, e.target.value)}
-                      placeholder="https://imagen-ejemplo.com/foto.jpg"
-                      className="flex-1 rounded-lg border px-3 py-2 border-zinc-200 dark:border-gray-800/60 bg-zinc-300/20 dark:bg-gray-900/20 placeholder:text-zinc-400/60 dark:placeholder:text-gray-600/60 outline-none focus:outline-solid focus:outline-2 focus:outline-blue-500/80 text-sm"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => eliminarCampoImagen(index)}
-                      className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors cursor-pointer"
-                      title="Eliminar este enlace"
-                    >
-                      <Trash2 size={16} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-              <button
-                type="button"
-                onClick={agregarCampoImagen}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-blue-500 hover:text-blue-400 transition-colors pt-1 cursor-pointer"
-              >
-                <Plus size={14} /> Cargar otra imagen
-              </button>
-            </div>
 
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={manejarSeleccionImagenes}
+                className="block w-full text-sm text-zinc-700 dark:text-gray-300
+                  file:mr-4 file:rounded-lg file:border-0
+                  file:bg-blue-500 file:px-4 file:py-2
+                  file:text-white hover:file:bg-blue-600
+                  file:cursor-pointer cursor-pointer"
+              />
+
+              {imagenes.length > 0 && (
+                <ul className="text-sm text-zinc-600 dark:text-gray-400 space-y-1">
+                  {imagenes.map((imagen) => (
+                    <li key={imagen.name}>
+                      📷 {imagen.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             {/* Botón Submit */}
             <button
               type="submit"
