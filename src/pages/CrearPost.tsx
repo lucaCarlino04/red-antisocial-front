@@ -89,6 +89,14 @@ export default function CrearPost() {
     }
   };
 
+  const manejarSeleccionImagenes = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    if (!e.target.files) return;
+
+    setImagenes(Array.from(e.target.files));
+  };
+
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
     setErrorForm(null);
