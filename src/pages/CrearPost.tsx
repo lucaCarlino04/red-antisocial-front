@@ -226,7 +226,7 @@ export default function CrearPost() {
                   type="button"
                   onClick={manejarCrearTag}
                   disabled={creandoTag || nuevaEtiqueta.trim() === ""}
-                  className="inline-flex items-center gap-1 text-xs font-semibold text-blue-500 hover:text-blue-400 transition-colors px-2 py-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-500 hover:text-emerald-400 transition-colors px-2 py-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Plus size={14} /> {creandoTag ? "Creando..." : "Crear"}
                 </button>
@@ -247,8 +247,8 @@ export default function CrearPost() {
                 onChange={manejarSeleccionImagenes}
                 className="block w-full text-sm text-zinc-700 dark:text-gray-300
                   file:mr-4 file:rounded-lg file:border-0
-                  file:bg-blue-500 file:px-4 file:py-2
-                  file:text-white hover:file:bg-blue-600
+                  file:bg-emerald-700 file:px-4 file:py-2
+                  file:text-white hover:file:bg-emerald-800
                   file:cursor-pointer cursor-pointer"
               />
 
@@ -270,7 +270,7 @@ export default function CrearPost() {
                 tagsSeleccionados.length === 0 ||
                 enviando
               }
-              className="w-full py-2 rounded-lg transition-colors cursor-pointer text-white bg-blue-500 hover:bg-blue-600 font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed font-display"
+              className="w-full py-2 rounded-lg transition-colors cursor-pointer text-white bg-emerald-700 hover:bg-emerald-800 font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed font-display"
             >
               {enviando ? "Publicando..." : "Crear posteo"}
             </button>

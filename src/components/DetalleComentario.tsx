@@ -15,7 +15,7 @@ export default function DetalleComentario({
       <div className="flex items-center justify-between">
         <Link
           to={`/perfil/${comentario.user.nickName}`}
-          className="font-semibold truncate text-blue-500 uppercase hover:text-blue-300 transition font-display"
+          className="font-semibold truncate text-emerald-500 uppercase hover:text-emerald-300 transition font-display"
         >
           @{comentario.user.nickName}
         </Link>

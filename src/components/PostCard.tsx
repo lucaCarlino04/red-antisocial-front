@@ -3,6 +3,8 @@ import { ArrowRight, MessageCircle, Star } from "lucide-react";
 import { tiempoRelativo } from "../utils/tiempoRelativo";
 import type { Post } from "../types/Post";
 import TagBoton from "./TagBoton";
+import { URL } from "../api";
+
 
 interface PostCardProps {
   post: Post;
@@ -17,6 +19,8 @@ export default function PostCard({
 }: PostCardProps) {
   const destacado = cantidadComentarios > 5;
 
+
+  
   return (
     <>
       <article
@@ -52,12 +56,12 @@ export default function PostCard({
               className={`grid gap-1 rounded-lg overflow-hidden ${post.images.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
             >
               {post.images.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`imagen ${i + 1}`}
-                  className="w-full object-cover max-h-72"
-                />
+                  <img
+                    key={i}
+                    src={`${URL}${img}`}
+                    alt={`imagen ${i + 1}`}
+                    className="w-full object-cover max-h-72"
+                  />
               ))}
             </div>
           )}
